@@ -52,8 +52,8 @@ main {
 }
 
 .controls svg {
-  width: 48px;
-  height: 48px;
+  width: var(--size-button-control);
+  height: var(--size-button-control);
 }
 
 .sounds {
@@ -91,4 +91,12 @@ main {
 
 .hide {
   display: none;
+}
+
+.selected {
+  background-color: var(--selected-card-color);
+}
+
+.selected svg path {
+  fill: var(--secondary-color);
 }
