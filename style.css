@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 6.25%;
+
+  --primary-color: hsl(240, 6%, 21%);
+  --secondary-color: hsl(0, 0%, 100%);
+  --card-color: hsl(240, 9%, 89%);
+  --hover-card-color: hsla(194, 97%, 31%, 0.603);
+  --selected-card-color: hsl(194, 97%, 31%);
+
+  --size-button-control: 48rem;
+}
+
+body {
+  background-color: var(--secondary-color);
+
+  font-family: Roboto;
+
+  height: 100vh;
+}
+
+main {
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 192rem;
+}
+
+.timer {
+  display: grid;
+  place-content: center;
+  gap: 17rem;
+}
+
+.countdown span {
+  color: #323238;
+  text-align: center;
+  font-size: 126rem;
+}
+
+.controls {
+  display: flex;
+
+  gap: 40rem;
+}
+
+.controls svg {
+  width: 48px;
+  height: 48px;
+}
+
+.sounds {
+  display: grid;
+  grid-template-rows: 152rem 152rem;
+  grid-template-columns: 138rem 138rem;
+  gap: 32rem;
+}
+
+.card {
+  background-color: var(--card-color);
+
+  border-radius: 24rem;
+
+  display: grid;
+  place-content: center;
+}
+
+.card:hover {
+  background-color: var(--hover-card-color);
+}
+
+.card:hover svg path {
+  fill: var(--secondary-color);
+}
+
+#play,
+#pause,
+#stop,
+#more-minutes,
+#less-minutes,
+.card {
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
