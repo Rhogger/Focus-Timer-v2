@@ -14,58 +14,44 @@ export default function Sounds({
     removeSelectedStyle(rainCard, coffeeCard, fireplaceCard)
     pauseAudio(rainAudio, coffeeStoreAudio, fireplaceAudio)
 
-    if (!forestCard.classList.contains('selected')) {
-      forestCard.classList.add('selected')
-      forestAudio.play()
-    } else {
-      removeSelectedStyle(forestCard)
-      pauseAudio(forestAudio)
-    }
+    isSelected(forestCard, forestAudio)
   }
 
   function playRainAudio() {
     removeSelectedStyle(forestCard, coffeeCard, fireplaceCard)
     pauseAudio(forestAudio, coffeeStoreAudio, fireplaceAudio)
 
-    if (!rainCard.classList.contains('selected')) {
-      rainCard.classList.add('selected')
-      rainAudio.play()
-    } else {
-      removeSelectedStyle(rainCard)
-      pauseAudio(rainAudio)
-    }
+    isSelected(rainCard, rainAudio)
   }
 
   function playCoffeeStoreAudio() {
     removeSelectedStyle(forestCard, rainCard, fireplaceCard)
     pauseAudio(forestAudio, rainAudio, fireplaceAudio)
 
-    if (!coffeeCard.classList.contains('selected')) {
-      coffeeCard.classList.add('selected')
-      coffeeStoreAudio.play()
-    } else {
-      removeSelectedStyle(coffeeCard)
-      pauseAudio(coffeeStoreAudio)
-    }
+    isSelected(coffeeCard, coffeeStoreAudio)
   }
 
   function playFireplaceAudio() {
     removeSelectedStyle(forestCard, rainCard, coffeeCard)
     pauseAudio(forestAudio, coffeeStoreAudio, rainAudio)
 
-    if (!fireplaceCard.classList.contains('selected')) {
-      fireplaceCard.classList.add('selected')
-      fireplaceAudio.play()
-    } else {
-      removeSelectedStyle(fireplaceCard)
-      pauseAudio(fireplaceAudio)
-    }
+    isSelected(fireplaceCard, fireplaceAudio)
   }
 
   function pauseAudio(audio1, audio2, audio3) {
     audio1 = audio1 === undefined ? null : audio1.pause()
     audio2 = audio2 === undefined ? null : audio2.pause()
     audio3 = audio3 === undefined ? null : audio3.pause()
+  }
+
+  function isSelected(card, audio) {
+    if (!card.classList.contains('selected')) {
+      card.classList.add('selected')
+      audio.play()
+    } else {
+      removeSelectedStyle(card)
+      pauseAudio(audio)
+    }
   }
 
   return {
