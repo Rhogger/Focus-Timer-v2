@@ -5,13 +5,10 @@ export default function Sounds({
   fireplaceAudio,
 }) {
 
-  function pauseAudio() {
-    forestAudio.pause()
-    rainAudio.pause()
-    coffeeStoreAudio.pause()
-    fireplaceAudio.pause()
-
-    console.log('Pausou');
+  function pauseAudio(audio1, audio2, audio3) {
+    audio1 = audio1 === undefined ? null : audio1.pause()
+    audio2 = audio2 === undefined ? null : audio2.pause()
+    audio3 = audio3 === undefined ? null : audio3.pause()
   }
 
   return {
