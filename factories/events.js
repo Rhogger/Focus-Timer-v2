@@ -1,4 +1,9 @@
 import {
+  btnPlay,
+  btnPause,
+  btnStop,
+  btnAddMinutes,
+  btnRemoveMinutes,
   forestCard,
   rainCard,
   coffeeCard,
@@ -8,6 +13,8 @@ import {
 export default function Events({
   sounds
 }) {
+
+
   forestCard.addEventListener('click', sounds.playForestAudio)
 
   rainCard.addEventListener('click', sounds.playRainAudio)

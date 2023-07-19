@@ -4,6 +4,9 @@ import {
   btnStop,
   btnAddMinutes,
   btnRemoveMinutes,
+  Time,
+  minutesDisplay,
+  secondsDisplay,
   forestCard,
   rainCard,
   coffeeCard,
@@ -13,10 +16,28 @@ import {
   coffeeStoreAudio,
   fireplaceAudio,
 } from './modules/elements.js'
+import Controls from './factories/controls.js'
+import Timer from './factories/timer.js'
 import Sounds from './factories/sounds.js'
 import Events from './factories/events.js'
 
 console.log('Script ativo');
+
+const timer = Timer({
+  Time,
+  minutesDisplay,
+  secondsDisplay,
+})
+
+const controls = Controls({
+  btnPlay,
+  btnPause,
+  btnStop,
+  btnAddMinutes,
+  btnRemoveMinutes,
+  Time,
+  timer,
+})
 
 const sounds = Sounds({
   forestCard,
@@ -27,11 +48,12 @@ const sounds = Sounds({
   rainAudio,
   coffeeStoreAudio,
   fireplaceAudio,
-  removeSelectedStyle
+  removeSelectedStyle,
 })
 
 Events({
-  sounds
+  controls,
+  sounds,
 })
 
 function removeSelectedStyle(card1, card2, card3) {
