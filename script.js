@@ -14,6 +14,7 @@ import {
   fireplaceAudio,
 } from './modules/elements.js'
 import Sounds from './factories/sounds.js'
+import Events from './factories/events.js'
 
 console.log('Script ativo');
 
@@ -29,13 +30,9 @@ const sounds = Sounds({
   removeSelectedStyle
 })
 
-forestCard.addEventListener('click', sounds.playForestAudio)
-
-rainCard.addEventListener('click', sounds.playRainAudio)
-
-coffeeCard.addEventListener('click', sounds.playCoffeeStoreAudio)
-
-fireplaceCard.addEventListener('click', sounds.playFireplaceAudio)
+Events({
+  sounds
+})
 
 function removeSelectedStyle(card1, card2, card3) {
   card1 = card1 === undefined ? null : card1.classList.remove('selected')
