@@ -37,6 +37,7 @@ const controls = Controls({
   btnRemoveMinutes,
   Time,
   timer,
+  minutesDisplay,
 })
 
 const sounds = Sounds({

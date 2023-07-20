@@ -19,19 +19,40 @@ export default function Timer({ Time, minutesDisplay, secondsDisplay }) {
         return
       }
 
-      minutesDisplay.textContent = String(minutes).padStart(2, '0')
-      secondsDisplay.textContent = String(seconds).padStart(2, '0')
+      updateCountdownDisplay(minutes, seconds)
       countdown()
     }, 1000)
   }
 
-  function resetDefaultCountdown() {
-    minutesDisplay.textContent = String(Time.minutes).padStart(2, '0')
-    secondsDisplay.textContent = String(Time.seconds).padStart(2, '0')
+  function updateCountdownDisplay(minutes, seconds) {
+    minutesDisplay.textContent = String(minutes).padStart(2, '0')
+    secondsDisplay.textContent = String(seconds).padStart(2, '0')
+  }
+
+  function getMinutes() {
+    return minutes
+  }
+
+  function addMinutes() {
+    minutes += 5
+    Time.minutes += 5
+  }
+
+  function removeMinutes() {
+    minutes -= 5
+    Time.minutes -= 5
+  }
+
+  function getSeconds() {
+    return seconds
   }
 
   return {
     countdown,
-    resetDefaultCountdown
+    updateCountdownDisplay,
+    getMinutes,
+    getSeconds,
+    addMinutes,
+    removeMinutes,
   }
 }
