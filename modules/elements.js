@@ -5,8 +5,8 @@ const btnAddMinutes = document.querySelector('#more-minutes')
 const btnRemoveMinutes = document.querySelector('#less-minutes')
 
 const Time = {
-  minutes: 1,
-  seconds: 10,
+  minutes: 25,
+  seconds: 0,
   idCountdown: null,
 }
 

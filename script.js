@@ -21,8 +21,6 @@ import Timer from './factories/timer.js'
 import Sounds from './factories/sounds.js'
 import Events from './factories/events.js'
 
-console.log('Script ativo');
-
 const timer = Timer({
   Time,
   minutesDisplay,
@@ -32,12 +30,6 @@ const timer = Timer({
 const controls = Controls({
   btnPlay,
   btnPause,
-  btnStop,
-  btnAddMinutes,
-  btnRemoveMinutes,
-  Time,
-  timer,
-  minutesDisplay,
 })
 
 const sounds = Sounds({
@@ -53,8 +45,9 @@ const sounds = Sounds({
 })
 
 Events({
-  controls,
   sounds,
+  controls,
+  timer,
 })
 
 function removeSelectedStyle(card1, card2, card3) {

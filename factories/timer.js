@@ -33,6 +33,10 @@ export default function Timer({ Time, minutesDisplay, secondsDisplay }) {
     return minutes
   }
 
+  function setMinutes() {
+    minutes = Time.minutes
+  }
+
   function addMinutes() {
     minutes += 5
     Time.minutes += 5
@@ -47,6 +51,14 @@ export default function Timer({ Time, minutesDisplay, secondsDisplay }) {
     return seconds
   }
 
+  function setSeconds() {
+    seconds = Time.seconds
+  }
+
+  function totalSecondsCountdown() {
+    return getMinutes() * 60 + getSeconds()
+  }
+
   return {
     countdown,
     updateCountdownDisplay,
@@ -54,5 +66,8 @@ export default function Timer({ Time, minutesDisplay, secondsDisplay }) {
     getSeconds,
     addMinutes,
     removeMinutes,
+    totalSecondsCountdown,
+    setMinutes,
+    setSeconds,
   }
 }
