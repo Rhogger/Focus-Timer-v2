@@ -13,6 +13,8 @@ const Time = {
 const minutesDisplay = document.querySelector('#minutes')
 const secondsDisplay = document.querySelector('#seconds')
 
+const groupSoundCardsButton = document.querySelector('.group-cards')
+const groupSoundCards = document.querySelector('.cards')
 const forestCard = document.querySelector('#forest')
 const rainCard = document.querySelector('#rain')
 const coffeeCard = document.querySelector('#coffee')
@@ -36,6 +38,8 @@ export {
   Time,
   minutesDisplay,
   secondsDisplay,
+  groupSoundCards,
+  groupSoundCardsButton,
   forestCard,
   rainCard,
   coffeeCard,

@@ -5,6 +5,8 @@ import {
   btnAddMinutes,
   btnRemoveMinutes,
   Time,
+  groupSoundCards,
+  groupSoundCardsButton,
   forestCard,
   rainCard,
   coffeeCard,
@@ -15,6 +17,7 @@ export default function Events({
   sounds,
   controls,
   timer,
+  nonSelectCards
 }) {
   forestCard.addEventListener('click', sounds.playForestAudio)
 
@@ -23,6 +26,42 @@ export default function Events({
   coffeeCard.addEventListener('click', sounds.playCoffeeStoreAudio)
 
   fireplaceCard.addEventListener('click', sounds.playFireplaceAudio)
+
+  forestCard.addEventListener('mouseenter', () => {
+    nonSelectCards(rainCard, coffeeCard, fireplaceCard, forestCard, '0.8')
+  })
+
+  forestCard.addEventListener('mouseleave', () => {
+    nonSelectCards(rainCard, coffeeCard, fireplaceCard, forestCard, '1')
+  })
+
+  rainCard.addEventListener('mouseleave', () => {
+    nonSelectCards(forestCard, coffeeCard, fireplaceCard, rainCard, '1')
+  })
+
+  rainCard.addEventListener('mouseenter', () => {
+    nonSelectCards(forestCard, coffeeCard, fireplaceCard, rainCard, '0.8')
+  })
+
+  coffeeCard.addEventListener('mouseenter', () => {
+    nonSelectCards(rainCard, forestCard, fireplaceCard, coffeeCard, '0.8')
+  })
+
+  coffeeCard.addEventListener('mouseleave', () => {
+    nonSelectCards(rainCard, forestCard, fireplaceCard, coffeeCard, '1')
+  })
+
+  fireplaceCard.addEventListener('mouseenter', () => {
+    nonSelectCards(rainCard, coffeeCard, forestCard, fireplaceCard, '0.8')
+  })
+
+  fireplaceCard.addEventListener('mouseleave', () => {
+    nonSelectCards(rainCard, coffeeCard, forestCard, fireplaceCard, '1')
+  })
+
+  groupSoundCardsButton.addEventListener('click', () => {
+    groupSoundCards.classList.toggle('hide')
+  })
 
   btnPlay.addEventListener('click', () => {
     timer.countdown()

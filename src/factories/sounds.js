@@ -58,6 +58,6 @@ export default function Sounds({
     playForestAudio,
     playRainAudio,
     playCoffeeStoreAudio,
-    playFireplaceAudio
+    playFireplaceAudio,
   }
 }

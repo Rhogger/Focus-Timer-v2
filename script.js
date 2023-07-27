@@ -1,12 +1,10 @@
 import {
   btnPlay,
   btnPause,
-  btnStop,
-  btnAddMinutes,
-  btnRemoveMinutes,
   Time,
   minutesDisplay,
   secondsDisplay,
+  groupSoundCards,
   forestCard,
   rainCard,
   coffeeCard,
@@ -15,11 +13,15 @@ import {
   rainAudio,
   coffeeStoreAudio,
   fireplaceAudio,
-} from './modules/elements.js'
-import Controls from './factories/controls.js'
-import Timer from './factories/timer.js'
-import Sounds from './factories/sounds.js'
-import Events from './factories/events.js'
+} from './src/modules/elements.js'
+import Controls from './src/factories/controls.js'
+import Timer from './src/factories/timer.js'
+import Sounds from './src/factories/sounds.js'
+import Events from './src/factories/events.js'
+
+if (window.matchMedia('(min-width: 822px)').matches) {
+  groupSoundCards.classList.toggle('hide')
+}
 
 const timer = Timer({
   Time,
@@ -48,6 +50,7 @@ Events({
   sounds,
   controls,
   timer,
+  nonSelectCards
 })
 
 function removeSelectedStyle(card1, card2, card3) {
@@ -56,3 +59,20 @@ function removeSelectedStyle(card1, card2, card3) {
   card3 = card3 === undefined ? null : card3.classList.remove('selected')
 }
 
+function nonSelectCards(card1, card2, card3, card4, opacity) {
+  card1 = opacity === '1' ? increaseCardSize(card1, opacity) : decreaseCardSize(card1, opacity)
+  card2 = opacity === '1' ? increaseCardSize(card2, opacity) : decreaseCardSize(card2, opacity)
+  card3 = opacity === '1' ? increaseCardSize(card3, opacity) : decreaseCardSize(card3, opacity)
+}
+
+function decreaseCardSize(card, opacity) {
+  card.style.transform = 'scale(0.8)'
+  card.style.transition = 'transform .3s'
+  card.style.opacity = opacity
+}
+
+function increaseCardSize(card, opacity) {
+  card.style.transform = 'scale(1)'
+  card.style.transition = 'transform .3s'
+  card.style.opacity = opacity
+}
