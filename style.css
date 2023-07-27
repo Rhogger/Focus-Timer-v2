@@ -169,6 +169,20 @@ main {
     right: 210rem;
   }
 
+  .cards:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 12px solid var(--primary-color);
+    bottom: 15rem;
+    right: -13rem;
+
+    z-index: -1;
+  }
+
   .card {
     width: 60rem;
 
