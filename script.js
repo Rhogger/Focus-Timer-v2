@@ -23,15 +23,17 @@ if (window.matchMedia('(min-width: 822px)').matches) {
   groupSoundCards.classList.toggle('hide')
 }
 
+const controls = Controls({
+  btnPlay,
+  btnPause,
+})
+
 const timer = Timer({
   Time,
   minutesDisplay,
   secondsDisplay,
-})
-
-const controls = Controls({
+  controls,
   btnPlay,
-  btnPause,
 })
 
 const sounds = Sounds({

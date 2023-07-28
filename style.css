@@ -13,7 +13,7 @@
   --hover-card-color: hsla(194, 97%, 31%, 0.603);
   --selected-card-color: hsl(194, 97%, 31%);
 
-  --size-button-control: 48rem;
+  --size-button-control: clamp(26rem, 2vw + 26rem, 48rem);
 }
 
 body {
@@ -41,6 +41,11 @@ main {
   gap: 17rem;
 }
 
+.countdown {
+  display: flex;
+  justify-content: center;
+}
+
 .countdown,
 .countdown span {
   -webkit-touch-callout: none;
@@ -54,13 +59,13 @@ main {
   -ms-user-select: none;
   /* IE10+ */
   user-select: none;
-  /* Possível implementação no futuro */
 }
 
 .countdown span {
   color: #323238;
   text-align: center;
-  font-size: 126rem;
+  /* font-size: 126rem; */
+  font-size: clamp(80rem, 2vw + 80rem, 126rem);
 }
 
 .controls {
@@ -68,6 +73,7 @@ main {
   justify-content: center;
 
   gap: 40rem;
+  gap: clamp(20rem, 2vw + 14rem, 40rem);
 }
 
 .controls svg {
@@ -77,6 +83,7 @@ main {
 
 .cards {
   display: grid;
+  /* --width-card: clamp(0, 0, 152rem); */
   grid-template-rows: 152rem 152rem;
   grid-template-columns: 138rem 138rem;
   gap: 32rem;
@@ -121,17 +128,14 @@ main {
 }
 
 @media (max-width: 822px) {
-  :root {
-    --size-button-control: 40rem;
-  }
-
   .sounds {
     position: absolute;
     bottom: 30rem;
     right: 30rem;
 
-    width: 50rem;
-    height: 50rem;
+    --button-size: clamp(36rem, 2vw + 34rem, 50rem);
+    width: var(--button-size);
+    height: var(--button-size);
   }
 
   .group-cards {
@@ -144,8 +148,8 @@ main {
     border: 3px solid var(--primary-color);
     border-radius: 12rem;
 
-    width: 50rem;
-    height: 50rem;
+    width: var(--button-size);
+    height: var(--button-size);
   }
 
   .group-cards svg path {
@@ -207,7 +211,7 @@ main {
   }
 
   .selected svg path {
-    fill: var(--secondary-color);
+    fill: var(--selected-card-color);
   }
 
   /* Animations */

@@ -1,4 +1,10 @@
-export default function Timer({ Time, minutesDisplay, secondsDisplay }) {
+export default function Timer({
+  Time,
+  minutesDisplay,
+  secondsDisplay,
+  controls,
+  btnPlay
+}) {
 
   let minutes
   let seconds
@@ -7,6 +13,13 @@ export default function Timer({ Time, minutesDisplay, secondsDisplay }) {
     Time.idCountdown = setTimeout(function () {
       minutes = Number(minutesDisplay.textContent)
       seconds = Number(secondsDisplay.textContent)
+
+      const timeOver = minutes === 0 && seconds === 0
+
+      if (timeOver) {
+        stop()
+        return
+      }
 
       if (seconds <= 0) {
         seconds = 60
@@ -59,6 +72,18 @@ export default function Timer({ Time, minutesDisplay, secondsDisplay }) {
     return getMinutes() * 60 + getSeconds()
   }
 
+  function stop() {
+    console.log('Terminou');
+    clearTimeout(Time.idCountdown)
+    updateCountdownDisplay(Time.minutes, Time.seconds)
+    setMinutes()
+    setSeconds()
+
+    if (btnPlay.classList.contains('hide')) {
+      controls.togglePlayOrPause()
+    }
+  }
+
   return {
     countdown,
     updateCountdownDisplay,
@@ -69,5 +94,6 @@ export default function Timer({ Time, minutesDisplay, secondsDisplay }) {
     totalSecondsCountdown,
     setMinutes,
     setSeconds,
+    stop,
   }
 }

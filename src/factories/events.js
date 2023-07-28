@@ -74,14 +74,7 @@ export default function Events({
   })
 
   btnStop.addEventListener('click', () => {
-    clearTimeout(Time.idCountdown)
-    timer.updateCountdownDisplay(Time.minutes, Time.seconds)
-    timer.setMinutes()
-    timer.setSeconds()
-
-    if (btnPlay.classList.contains('hide')) {
-      controls.togglePlayOrPause()
-    }
+    timer.stop()
   })
 
   btnAddMinutes.addEventListener('click', () => {
